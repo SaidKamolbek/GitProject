@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/LoginScreen">
+
+    <fragment
+        android:id="@+id/RegisterScreen"
+        android:name="com.example.gitproject.ui.screens.RegisterScreen"
+        android:label="Register Screen"
+        tools:layout="@layout/register_screen">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/LoginScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/LoginScreen"
+        android:name="com.example.gitproject.ui.screens.LoginScreen"
+        android:label="Login Screen"
+        tools:layout="@layout/login_screen">
+
+        <action
+            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/RegisterScreen" />
+        <action
+            android:id="@+id/action_LoginScreen_to_contactListScreen"
+            app:destination="@id/contactListScreen"
+            app:popUpTo="@id/LoginScreen"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactListScreen"
+        android:name="com.example.gitproject.ui.screens.ContactListScreen"
+        android:label="All the Contact"
+        tools:layout="@layout/contact_list_screen">
+        <action
+            android:id="@+id/action_contactListScreen_to_LoginScreen"
+            app:destination="@id/LoginScreen"
+            app:popUpTo="@id/contactListScreen"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
